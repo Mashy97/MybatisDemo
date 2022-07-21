@@ -9,18 +9,19 @@ import org.springframework.stereotype.Repository;
 import com.example.vo.CityVo;
 
 @Repository("cityDao")
-public class CityDaoImple implements CityDao {
+public class CityDaoImpl implements CityDao {
 
+	@Autowired
+	private SqlSession sqlSession;
+	
 	@Override
 	public CityVo read(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sqlSession.selectOne("City.selectCity", name);
 	}
 
 	@Override
 	public List<CityVo> readAll(String countryCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sqlSession.selectList("City.selectCitiesByCountryCode", countryCode);
 	}
 
 }

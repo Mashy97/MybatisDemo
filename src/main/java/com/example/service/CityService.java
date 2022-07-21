@@ -6,5 +6,5 @@ import com.example.vo.CityVo;
 
 public interface CityService {
 	CityVo selectCity(String name);
-	List<CityVo> selectAllCitiesByCountryCode(String CountryCode);
+	List<CityVo> selectAllCitiesByCountryCode(String countryCode);
 }
